@@ -1,13 +1,15 @@
 package com.jals.todo.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "todo")
@@ -21,13 +23,15 @@ public class Todo implements Serializable {
 	
 	private String title;
 	private String description;
-	private LocalDateTime dateToFinish;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private Date dateToFinish;
 	private Boolean finish = false;
 
 	public Todo() {
 	}
 
-	public Todo(Long id, String title, String description, LocalDateTime dateToFinish, Boolean finish) {
+	public Todo(Long id, String title, String description, Date dateToFinish, Boolean finish) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -60,11 +64,11 @@ public class Todo implements Serializable {
 		this.description = description;
 	}
 
-	public LocalDateTime getDateToFinish() {
+	public Date getDateToFinish() {
 		return dateToFinish;
 	}
 
-	public void setDateToFinish(LocalDateTime dateToFinish) {
+	public void setDateToFinish(Date dateToFinish) {
 		this.dateToFinish = dateToFinish;
 	}
 

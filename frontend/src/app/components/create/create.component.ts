@@ -1,15 +1,10 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Todo } from 'src/app/models/todo';
 import { TodoService } from 'src/app/services/todo.service';
 
-
-interface Task {
-  title: string;
-  description: string;
-  date: Date;
-  finish: Boolean;
-}
 
 @Component({
   selector: 'app-create',
@@ -18,23 +13,23 @@ interface Task {
 })
 export class CreateComponent implements OnInit {
 
-  task: Task = {
+  task: Todo = {
     title: '',
     description: '',
-    date: new Date(Date.now()),
+    dateToFinish: new Date(Date.now()),
     finish: false,
   }
 
   public taskForm: FormGroup;
   formResult: string;
 
-  constructor(private fb: FormBuilder, private service: TodoService) { }
+  constructor(private fb: FormBuilder, private service: TodoService, private router: Router) { }
 
   ngOnInit(): void {
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      date: [formatDate(this.task.date, 'MM/dd/yyyy', 'en'), [Validators.required]],
+      dateToFinish: [formatDate(this.task.dateToFinish, 'dd/MM/yyyy', 'en'), [Validators.required]],
       finish: false
     })
   }
@@ -45,12 +40,17 @@ export class CreateComponent implements OnInit {
       console.log(this.taskForm.value);
       this.service.create(this.taskForm.value).subscribe((r) => {
         this.service.message('Task criada com sucesso!');
+        this.router.navigate(['/']);
       }, err => {
         this.service.message('Falha ao criar Task');
       })
     }else{
       console.log('Form invalid');
     }
+  }
+
+  back(): void {
+    this.router.navigate(['/']);
   }
 
 }

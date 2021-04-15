@@ -13,10 +13,13 @@
                 
             <mat-form-field appearance="outline">
                 <mat-label>01/12/2020</mat-label>
-                <input matInput placeholder="Data" formControlName="date">
+                <input matInput placeholder="Data" formControlName="dateToFinish">
                 <mat-hint>Tipo: 01/12/2020</mat-hint>
             </mat-form-field>
             <button mat-raised-button color="primary">Criar</button>
         </form>
+        <div class="back">
+            <button (click)="back()" mat-stroked-button color="primary">Voltar</button>
+        </div>
     </div>
 </div>

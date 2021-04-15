@@ -16,9 +16,18 @@ form {
     width: 50%;
     flex-direction: column;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2rem 2rem 0.5rem 2rem;
 }
 
 input {
     cursor: pointer;
+}
+
+.back {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.back button {
+    width: 100%;
 }

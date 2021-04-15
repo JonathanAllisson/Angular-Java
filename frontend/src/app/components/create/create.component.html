@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="content">
+        <form (ngSubmit)="addTask()" [formGroup]="taskForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Título</mat-label>
+                <input matInput placeholder="Título" formControlName="title">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Descrição</mat-label>
+                <input matInput placeholder="Descrição" formControlName="description">
+            </mat-form-field>
+                
+            <mat-form-field appearance="outline">
+                <mat-label>01/12/2020</mat-label>
+                <input matInput placeholder="Data" formControlName="date">
+                <mat-hint>Tipo: 01/12/2020</mat-hint>
+            </mat-form-field>
+            <button mat-raised-button color="primary">Criar</button>
+        </form>
+    </div>
+</div>

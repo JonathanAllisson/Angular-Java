@@ -1,0 +1,24 @@
+.container {
+    width: 80%;
+    margin: auto;
+    height: calc(100vh - 3rem);
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+form {
+    margin-top: 2rem;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+input {
+    cursor: pointer;
+}

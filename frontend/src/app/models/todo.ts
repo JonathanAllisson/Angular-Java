@@ -3,5 +3,5 @@ export interface Todo {
     title: String,
     description?: String,
     dateToFinish: Date,
-    finish: Boolean 
+    finish: Boolean, 
 }

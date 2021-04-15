@@ -48,4 +48,8 @@ export class ReadAllComponent implements OnInit {
     this.router.navigate(['/finalized']);
   }
 
+  create(): void {
+    this.router.navigate(['/add']);
+  }
+
 }

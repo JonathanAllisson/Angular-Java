@@ -4,7 +4,7 @@
         <button (click)="finalized()" mat-stroked-button color="primary" matBadge="{{ closed }}">Tasks finalizadas</button>
     </div>
 
-    <button class="novo-todo mat-elevation-z8" mat-stroked-button color="primary">NOVO TODO</button>
+    <button (click)="create()" class="novo-todo mat-elevation-z8" mat-stroked-button color="primary">NOVO TODO</button>
     <div class="content" *ngFor="let item of list" >
         <mat-card class="mat-elevation-z8">
             <p>Data para finalizar: {{ item.dateToFinish }} </p>

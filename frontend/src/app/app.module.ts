@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms'
 
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { FooterComponent } from "./components/footer/footer.component";
@@ -16,6 +17,9 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FinalizedComponent } from './components/finalized/finalized.component';
+import { CreateComponent } from './components/create/create.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { FinalizedComponent } from './components/finalized/finalized.component';
     FooterComponent,
     ReadAllComponent,
     FinalizedComponent,
+    CreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,11 @@ import { FinalizedComponent } from './components/finalized/finalized.component';
     MatIconModule,
     HttpClientModule,
     MatBadgeModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Todo } from 'src/app/models/todo';
 import { TodoService } from 'src/app/services/todo.service';
@@ -29,15 +29,14 @@ export class CreateComponent implements OnInit {
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      dateToFinish: [formatDate(this.task.dateToFinish, 'dd/MM/yyyy', 'en'), [Validators.required]],
+      dateToFinish: ['', [Validators.required]],
       finish: false
     })
   }
 
   addTask(): void {
     if(this.taskForm.valid){
-      //this.formResult = JSON.stringify(this.taskForm.value);
-      console.log(this.taskForm.value);
+      this.taskForm.value.dateToFinish = formatDate(this.taskForm.value.dateToFinish, 'dd/MM/yyyy', 'en');
       this.service.create(this.taskForm.value).subscribe((r) => {
         this.service.message('Task criada com sucesso!');
         this.router.navigate(['/']);
